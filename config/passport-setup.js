@@ -9,18 +9,34 @@ passport.use(
         clientID:keys.google.clientID,
         clientSecret:keys.google.clientSecret
     },(accessToken,refreshtoken,profile,done)=>{
-        console.log(profile);
-        user.create({
-            name:profile.displayName,
-            ID:profile.id
+       user.findOne({
+           ID:profile.id
+       }).then((users)=>{
+           if(users){
+               console.log(users)
 
-        })
-            .then((result)=>{
-                console.log(result);
-            }).catch((err)=>{
-                console.log(err);
-        })
+           }
+           else{
+               user.create({
+                   name:profile.displayName,
+                   ID:profile.id
 
+               })
+                   .then((result)=>{
+                       console.log(result);
+                   }).catch((err)=>{
+                   console.log(err);
+               })
+
+           }
+       })
+
+
+
+
+
+
+    })
 )
 
 

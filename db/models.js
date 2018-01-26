@@ -28,7 +28,17 @@ const User={
                 return resolve(result)
             })
         })
+    },
+    findOne:function (user1) {
+        return new Promise(function (resolve, reject) {
+            user.findOne(user1, function (err, result) {
+                if (err) return reject(err)
+
+                return resolve(result)
+            })
+        })
     }
+
 }
 
 exports.models = {

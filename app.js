@@ -1,4 +1,5 @@
 const express=require('express')
+const passportsetup=require('./config/passport-setup');
 
 const app=express();
 const authroute=require('./routes/auth_routes').route

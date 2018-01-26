@@ -4,11 +4,12 @@ const keys=require('./keys')
 
 passport.use(
     new GoogleStratergy({
-        clientId:keys.google.clientID,
+        callbackURL:'/auth/google/redirect',
+        clientID:keys.google.clientID,
         clientSecret:keys.google.clientSecret
-    }),()=>{
-
-    }
+    },(accessToken,refreshtoken,profile,done)=>{
+        console.log('profile')
+    })
 )
 
 

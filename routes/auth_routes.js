@@ -17,7 +17,7 @@ route.get('/logout',(req,res)=>{
 })
 
 route.get('/google/redirect',passport.authenticate('google'),(req,res)=>{
-
+console.log(req.user);
 })
 
 exports=module.exports={

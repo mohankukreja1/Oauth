@@ -3,7 +3,7 @@ const GoogleStratergy=require('passport-google-oauth20');
 const keys=require('./keys')
 const user=require('../db/models').models.User
 passport.serializeUser((USER,done)=>{
-    done(null,USER.id);
+    done(null,USER._id);
 })
 passport.deserializeUser((id,done)=>{
     user.findOne({

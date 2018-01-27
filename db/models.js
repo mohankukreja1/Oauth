@@ -37,7 +37,8 @@ const User={
                 return resolve(result)
             })
         })
-    }
+    },
+
 
 }
 
